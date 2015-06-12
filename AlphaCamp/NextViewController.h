@@ -11,5 +11,5 @@
 @interface NextViewController : UIViewController<UIGestureRecognizerDelegate>
 @property (nonatomic, retain) IBOutlet UITextField *userMail;
 @property (nonatomic, retain) IBOutlet UITextField *userPassword;
-
+@property NSString *Eric;
 @end

@@ -17,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.Eric = @"eric";
+    
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
 
     [gestureRecognizer setDelegate:self];
@@ -39,11 +42,24 @@
     return YES;
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([self.userMail.text isEqualToString:self.Eric ]) {
+        return YES;
+    }
+    else {
+        NSLog(@"Wrong Mail");
+        return NO;
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"Prepare to Push");
     ThirdViewController *ThirdVC = segue.destinationViewController;
     ThirdVC.testMail = self.userMail.text;
+
 }
+
+
 - (void)hideKeyboard {
     [self.view endEditing:YES];
 }
